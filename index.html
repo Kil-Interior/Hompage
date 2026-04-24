@@ -4,6 +4,99 @@
     <meta charset="UTF-8">
     <title>길건축 인테리어</title>
     <style>
+	/* 1. 상단 메뉴바 기본 스타일 */
+        .navbar {
+            background-color: #f5f5dc; /* 푸터와 맞춘 연한 갈색 */
+            overflow: visible;
+            display: flex;
+            justify-content: center; /* 가운데 정렬 */
+        }
+        /* 2. 대메뉴 스타일 */
+        .menu-item {
+            position: relative;
+            display: inline-block;
+        }
+        .menu-link {
+            display: block;
+            color: #5d4037;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: bold;
+	    transition: background-color 0.3s ease; /* 0.3초 동안 부드럽게 색상 변경 */
+        }
+        .menu-link:hover {
+            background-color: #eaddca; /* 마우스 올렸을 때 살짝 진해짐 */
+        }
+        /* 3. 세부 메뉴(서브메뉴) 스타일 - 처음엔 숨김 */
+        .submenu {
+            display: none; /* 기본적으로 안 보임 */
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .submenu li a {
+            color: #5d4037;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #f5f5dc;
+        }
+        .submenu li a:hover {
+            background-color: #f5f5dc;
+        }
+        /* 4. 핵심! 마우스 올리면 세부 메뉴 보이기 */
+        .menu-item:hover .submenu {
+            display: block;
+        }
+
+	/* 본문 영역 */
+        .main-content { 
+		flex: 1;
+		padding: 60px 20px;
+		text-align: center;
+		background-color: #fafafa; }
+        .process-container { display: flex;
+		justify-content: center;
+		gap: 20px;
+		margin-top: 40px;
+		flex-wrap: wrap; }
+	
+	/* 5단계 네모 박스 스타일 */
+        .process-box {
+            width: 180px;
+            height: 220px;
+            background-color: #ffffff;
+            border: 2px solid #eaddca;
+            border-radius: 12px;
+            text-decoration: none; /* 링크 밑줄 제거 */
+            color: #5d4037;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease; /* 부드러운 효과 */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+	/* 마우스 올렸을 때 효과 */
+        .process-box:hover {
+            transform: translateY(-10px); /* 살짝 위로 이동 */
+            background-color: #eaddca;
+            border-color: #d7ccc8;
+        }
+        .process-box .step-num {
+		font-size: 14px;
+		font-weight: bold;
+		color: #a1887f;
+		margin-bottom: 10px; }
+        .process-box .step-title {
+		font-size: 18px;
+		font-weight: bold; }
+
         /* 푸터 전체 스타일 */
         .site-footer {
             background-color: #f5f5dc; /* 연한 갈색 (베이지) */
@@ -14,19 +107,16 @@
             text-align: center;         /* 가운데 정렬 */
             border-top: 1px solid #d7ccc8;
         }
-
         /* 푸터 내부 컨텐츠 정렬 */
         .footer-content {
             max-width: 1000px;
             margin: 0 auto;
         }
-
         /* 주소 및 연락처 스타일 */
         .footer-info span {
             display: inline-block;
             margin: 0 10px;
         }
-
         /* 저작권 표시 */
         .footer-copyright {
             margin-top: 20px;
@@ -36,9 +126,66 @@
     </style>
   </head>
   <body>
+	<nav class="navbar">
+        <div class="menu-item">
+            <a href="#" class="menu-link">회사소개</a>
+            <ul class="submenu">
+                <li><a href="#">인사말</a></li>
+                <li><a href="#">오시는 길</a></li>
+                <li><a href="#">연혁</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-item">
+            <a href="#" class="menu-link">인테리어 공사</a>
+            <ul class="submenu">
+                <li><a href="#">견적문의</a></li>
+                <li><a href="#">공사 프로세스</a></li>
+                <li><a href="#">포트폴리오</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-item">
+            <a href="#" class="menu-link">커뮤니티</a>
+            <ul class="submenu">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">Q&A</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <h1>길건축 인테리어</h1>
     <h2>천안의 사계절을 가장 아름답게 담아내는 공간 디자인</h2>
     <img src="고양이.jpg" width="500">
+
+    <main class="main-content">
+        <h1>Interior Process</h1>
+        <p>인테리어의 시작부터 끝까지, 체계적인 시스템으로 함께합니다.</p>
+        
+        <div class="process-container">
+            <a href="step1.html" class="process-box">
+                <span class="step-num">STEP 01</span>
+                <span class="step-title">상담 및 실측</span>
+            </a>
+            <a href="step2.html" class="process-box">
+                <span class="step-num">STEP 02</span>
+                <span class="step-title">디자인 제안</span>
+            </a>
+            <a href="step3.html" class="process-box">
+                <span class="step-num">STEP 03</span>
+                <span class="step-title">계약 및 설계</span>
+            </a>
+            <a href="step4.html" class="process-box">
+                <span class="step-num">STEP 04</span>
+                <span class="step-title">시공</span>
+            </a>
+            <a href="step5.html" class="process-box">
+                <span class="step-num">STEP 05</span>
+                <span class="step-title">완공 및 AS</span>
+            </a>
+        </div>
+    </main>
+
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-info">
